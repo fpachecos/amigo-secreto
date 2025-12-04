@@ -200,12 +200,9 @@ export default function EventPage() {
 
     setShowConfirmation(false)
     
-    // Se o participante já tinha desejo cadastrado, não mostrar o formulário
-    // Caso contrário, mostrar para adicionar desejo
-    if (!selectedParticipant.wish) {
-      setShowWishForm(true)
-    } else {
-      setWish(selectedParticipant.wish)
+    // Rolar para o topo da página
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
