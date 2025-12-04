@@ -23,12 +23,11 @@ export function assignSecretFriends(participantIds: string[]): Map<string, strin
   // Verificar se alguém ficou sem amigo ou se alguém é amigo de si mesmo
   // Se isso acontecer (improvável, mas possível), refazer o sorteio
   let isValid = true
-  for (const [participant, friend] of assignments) {
+  assignments.forEach((friend, participant) => {
     if (participant === friend || !friend) {
       isValid = false
-      break
     }
-  }
+  })
 
   // Se não for válido, tentar novamente (recursão limitada)
   if (!isValid && participantIds.length > 2) {
